@@ -5,8 +5,8 @@ Localizoom: Viewer and annotation of 2D image brain sections
    :caption: Localizoom documentation
    :maxdepth: 3
 
-   Introduction
-   Installation
+   introduction
+   installation
    support
    publications
  
