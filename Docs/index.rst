@@ -21,5 +21,6 @@ Localizoom: Viewer and annotation of 2D image brain sections
    :numbered:
    :maxdepth: 3
    
-   
+   basic
+   annotation
    
