@@ -19,7 +19,7 @@ the location of the extracted coordinate. After all desired points have
 been marked, **the coordinates can be exported** either to **Excel** (10) or to
 **MeshView** (11) using the corresponding buttons in the upper toolbar.
 
-When clickingthese buttons, a set of coordinates will appear that can be
+When clicking on these buttons, a set of coordinates will appear that can be
 copy pasted into MeshView in order to work with these point clouds in
 3D.
 
@@ -36,3 +36,7 @@ copy pasted into MeshView in order to work with these point clouds in
    :height: 1.675in
 
 **Controls**:
+
+ • Press Space to annotate points of interest. Atlas coordinates for points of interest can be exported to Excel or MeshView atlas viewer 
+ • Press Delete to remove an annotation marker under the mouse cursor
+ 
