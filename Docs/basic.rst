@@ -1,6 +1,6 @@
 **Localizoom viewer only**
 -------------------------------
-**Basic controls**
+**Basic operations**
 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image2.png
@@ -20,7 +20,7 @@ the name of the image file (6).
 In the middle panel, the pointer of the mouse will show the atlas region
 name (5). The main image can be zoomed and panned.
 
-Controls:
+**Controls**:
 
 
 • Pan and zoom with mouse drag and mouse scroll wheel            
@@ -28,7 +28,7 @@ Controls:
 • Quick set segmentation transparency to minimum and back using down and up arrow keys                                          
 • Drag an annotation marker to refine its position                
 
-Coordinates of points
+**Coordinates of points**
 
 The user can visualise the coordinates of the mouse pointer (7) and
 switch between different coordinate spaces when available.
