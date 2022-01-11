@@ -37,6 +37,6 @@ copy pasted into MeshView in order to work with these point clouds in
 
 **Controls**:
 
- • Press Space to annotate points of interest. Atlas coordinates for points of interest can be exported to Excel or MeshView atlas viewer 
- • Press Delete to remove an annotation marker under the mouse cursor
+• Press Space to annotate points of interest. Atlas coordinates for points of interest can be exported to Excel or MeshView atlas viewer 
+• Press Delete to remove an annotation marker under the mouse cursor
  
