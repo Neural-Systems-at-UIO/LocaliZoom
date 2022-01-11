@@ -16,7 +16,7 @@ button (8), new button s will appear. To extract a coordinate, the mouse
 marker must be positioned at the desired location, and space must be
 pressed. **A cross will appear in the selected colour** (9), representing
 the location of the extracted coordinate. After all desired points have
-been marked, the coordinates can be exported either to **Excel** (10) or to
+been marked, **the coordinates can be exported** either to **Excel** (10) or to
 **MeshView** (11) using the corresponding buttons in the upper toolbar.
 
 When clickingthese buttons, a set of coordinates will appear that can be
