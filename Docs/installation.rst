@@ -6,7 +6,7 @@ none
 
 **Technical information:**
 
-Comming soon..
+Coming soon..
 
 **Conditions of use**
 ~~~~~~~~~~~~~~~~~~~~~~
