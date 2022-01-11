@@ -27,3 +27,12 @@ Controls:
 • Step backwards and forwards in series with left and right arrow keys                                                      
 • Quick set segmentation transparency to minimum and back using down and up arrow keys                                          
 • Drag an annotation marker to refine its position                
+
+Coordinates of points
+
+The user can visualise the coordinates of the mouse pointer (7) and
+switch between different coordinate spaces when available.
+
+.. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image3.png
+   :width: 6.3in
+   :height: 2.75417in
