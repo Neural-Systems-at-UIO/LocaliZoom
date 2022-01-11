@@ -16,3 +16,8 @@ instance of Localizoom, which will be available on EBRAINS shortly.
   - Visualisation of experimental histological section images with atlas overlay 
   - Display of the atlas region name when pointing the mouse at the region of interest
   - Annotations and extraction of coordinate points when enabled
+  
+  
+.. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image1.png
+   :width: 6.30139in
+   :height: 2.75417in
