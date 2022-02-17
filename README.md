@@ -9,8 +9,8 @@ Localizoom is developed by the Neural Systems Laboratory at the Institute of Bas
 Gergely Csucs, Maja A Puchades, Jan G Bjaalie. 
 
 # Licence
-- Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
-- 
+- MIT licence
+
 
 # Contact us
 Report issues here on github or email: support@ebrains.eu
