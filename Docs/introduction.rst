@@ -21,14 +21,13 @@ instance of Localizoom, which will be available on EBRAINS shortly.
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image1.png
    :width: 6.30139in
    :height: 2.75417in
-   
-   
+      
  
 *Access via EBRAINS*:
 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image7.png
-   :width: 7.30139in
+   :width: 5.30139in
    :height: 2.75417in
 
 
