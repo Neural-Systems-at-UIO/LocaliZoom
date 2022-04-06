@@ -1,21 +1,19 @@
 **Installation requirements**
 -----------------------------
-**System requirements**
-~~~~~~~~~~~~~~~~~~~~~~~~
-none
 
-**Technical information:**
+**Technical information**
+===========================
 Client-side web application, requires HTML5 canvas. Standalone, but relies on accessing external data source(s) either via co-hosting or CORS.
 
 **Conditions of use**
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Licence:** 
+**Licence** 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0
 International for the main component. Source code: MIT License.
 
 
-**Citation of the tool:**
+**Citation of the tool**
 
 -Puchades MA, Csucs G, Ledergerber D, Leergaard TB, Bjaalie JG (2019)
   Spatial registration of serial microscopic brain images to
@@ -30,7 +28,7 @@ the European Union’s Horizon 2020 Framework Programme for Research and
 Innovation under the Framework Partnership Agreement No. 650003 (HBP
 FPA).
 
-**Citation of the atlases embedded in the tool:**
+**Citation of the atlases embedded in the tool**
 
 Localizoom is displaying the following reference atlases:
 
