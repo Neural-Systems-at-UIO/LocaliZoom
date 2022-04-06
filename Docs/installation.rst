@@ -5,14 +5,12 @@
 none
 
 **Technical information:**
-
-Coming soon..
+Client-side web application, requires HTML5 canvas. Standalone, but relies on accessing external data source(s) either via co-hosting or CORS.
 
 **Conditions of use**
 ~~~~~~~~~~~~~~~~~~~~~~
 
 **Licence:** 
-
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0
 International for the main component. Source code: MIT License.
 
@@ -60,6 +58,5 @@ Osen et al., NeuroImage 199, 38-56, 2019; Kleven et al., in preparation)
 For reuse of the Waxholm Space atlas of the Sprague Dawley rat brain,see citation policy at  
 https://www.nitrc.org/citation/?group_id=1081
 
-**Release notes**
-~~~~~~~~~~~~~~~~~~
+
 
