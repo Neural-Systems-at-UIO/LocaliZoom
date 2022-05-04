@@ -1,4 +1,4 @@
-**Localizoom viewer only**
+**LocaliZoom viewer only**
 -------------------------------
 **Basic operations**
 
