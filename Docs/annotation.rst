@@ -1,4 +1,4 @@
-**Localizoom viewer and annotation tool**
+**LocaliZoom viewer and annotation tool**
 --------------------------------------------
 
 The same basic controls applies and in addition extraction of a limited
