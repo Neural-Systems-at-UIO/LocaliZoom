@@ -10,7 +10,7 @@ to efficiently visualise very large brain images in the gigapixel range,
 allowing to zoom from common, display-sized overview resolutions down to
 the microscopic resolution without downloading the underlying very large
 image dataset. Annotations of the images are enabled in a separate
-instance of Localizoom, which will be available on EBRAINS shortly.
+instance of LocaliZoom, which will be available on EBRAINS shortly.
 
 *Key features*:
   - Visualisation of experimental histological section images with atlas overlay 
