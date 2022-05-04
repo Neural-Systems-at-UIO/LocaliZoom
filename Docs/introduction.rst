@@ -1,7 +1,7 @@
 **Introduction**
 ------------------- 
 EBRAINS LocaliZoom serial section image viewer provides an intuitive way
-of navigating highresolution 2D image series coupled with segmentation
+of navigating high-resolution 2D image series coupled with segmentation
 overlay, from a web browser. At its core, it is a web-based pan-and-zoom
 2D image viewer coupled with a volumetric atlas slicer, and a
 navigational aid showing the entire image series as a "filmstrip".
