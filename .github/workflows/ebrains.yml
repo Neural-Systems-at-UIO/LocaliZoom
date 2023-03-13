@@ -11,7 +11,7 @@ jobs:
       - name: sync_master
         uses: wei/git-sync@v3
         with:
-          source_repo: "HumanBrainProject/LocaliZoom"
+          source_repo: "Neural-Systems-at-UIO/LocaliZoom"
           source_branch: "master"
           destination_repo: "https://ghpusher:${{ secrets.EBRAINS_GITLAB_ACCESS_TOKEN }}@gitlab.ebrains.eu/csucs/localizoom.git"
           destination_branch: "master"
