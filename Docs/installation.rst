@@ -15,6 +15,8 @@ International for the main component. Source code: MIT License.
 
 **Citation of the tool**
 
+-RRID:SCR_023481 
+
 -Puchades MA, Csucs G, Ledergerber D, Leergaard TB, Bjaalie JG (2019)
   Spatial registration of serial microscopic brain images to
   three-dimensional reference atlases with the QuickNII tool. PLOS ONE
