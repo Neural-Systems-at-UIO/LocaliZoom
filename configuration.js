@@ -15,7 +15,8 @@ function transformSeries(series) {
      * convert extensions to .tif except for one protected bucket:
      */
     if (args.pyramids !== "buckets/img-eff39c41-6eaa-4d3f-a91f-ef936e793606"
-     && args.pyramids !== "buckets/d-d12e41db-78ec-46ac-b3e7-8f22b219f6fb") {
+     && args.pyramids !== "buckets/d-d12e41db-78ec-46ac-b3e7-8f22b219f6fb"
+     && !args.nontiff) {
         for (const slice of series.slices) {
             const filename = slice.filename;
             const pos = filename.lastIndexOf(".");
