@@ -27,7 +27,7 @@ instance of LocaliZoom, which will be available on EBRAINS shortly.
 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image7.png
-   :width: 4.8in
+   :width: 6.3in
    :height: 3.75in
 
 
