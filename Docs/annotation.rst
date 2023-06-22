@@ -11,6 +11,8 @@ boundaries and annotate points in order to extract coordinates.
    :width: 6.3in
    :height: 2.88611in
 
+Dataset DOI: 10.25493/G6CQ-D4D
+
 To extract a coordinate, the mouse marker must be positioned at the desired location, and press the space bar. A cross will appear in the selected colour (under Settings), representing the location of the extracted coordinate. After all desired points have been marked, the coordinates can be exported either to Excel.
 
 Press "delete" in order to remove an annotation.
@@ -22,6 +24,7 @@ Save your annotations with the "save" or "save as" buttons. The file format is .
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image5.png
    :width: 6.30139in
    :height: 2.59306in
+
 
 **Viewing point coordinates in MeshView**
 
