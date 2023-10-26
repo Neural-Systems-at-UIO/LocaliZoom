@@ -9,8 +9,10 @@ Building on the open standard Deep Zoom Image (DZI) format, it is able
 to efficiently visualise very large brain images in the gigapixel range,
 allowing to zoom from common, display-sized overview resolutions down to
 the microscopic resolution without downloading the underlying very large
-image dataset. Annotations of the images are enabled in a separate
-instance of LocaliZoom, which will be available on EBRAINS shortly.
+image dataset.
+
+In addition, LocaliZoom is available as a web app in the EBRAINS collaboratory.
+A Demo dataset is present in a Demo collab: https://wiki.ebrains.eu/bin/view/Collabs/image-registration-and-analysis-demo
 
 *Key features*:
   - Visualisation of experimental histological section images with atlas overlay 
