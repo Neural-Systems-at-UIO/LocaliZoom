@@ -7,13 +7,20 @@ within a small region of interest is possible. Users can inspect the
 images at cellular resolution and observe brain regions, names, and
 boundaries and annotate points in order to extract coordinates.
 
+Use the webapp here: https://wiki.ebrains.eu/bin/view/Collabs/image-registration-and-analysis-demo
+
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image4.png
    :width: 6.3in
    :height: 2.88611in
 
 Dataset DOI: 10.25493/G6CQ-D4D
 
-To extract a coordinate, the mouse marker must be positioned at the desired location, and press the space bar. A cross will appear in the selected colour (under Settings), representing the location of the extracted coordinate. After all desired points have been marked, the coordinates can be exported either to Excel.
+**Controls**:
+
+• Press Space to annotate points of interest. Atlas coordinates for points of interest can be exported to Excel or MeshView atlas viewer 
+• Press Delete to remove an annotation marker under the mouse cursor
+ 
+To extract a coordinate, the mouse marker must be positioned at the desired location, and press the space bar. A cross will appear in the selected colour (under Settings), representing the location of the extracted coordinate. After all desired points have been marked, the coordinates can be exported to Excel.
 
 Press "delete" in order to remove an annotation.
 
@@ -28,10 +35,6 @@ Save your annotations with the "save" or "save as" buttons. The file format is .
 
 **Viewing point coordinates in MeshView**
 
-The saved .lz file can also be visualised in the 3D viewer, MeshView.
+The saved .lz file can also be visualised in the 3D viewer, MeshView (https://meshview-for-brain-atlases.readthedocs.io/en/latest/index.html) which is also available as a webapp in the EBRAINS collaboratory.
 
-**Controls**:
 
-• Press Space to annotate points of interest. Atlas coordinates for points of interest can be exported to Excel or MeshView atlas viewer 
-• Press Delete to remove an annotation marker under the mouse cursor
- 
