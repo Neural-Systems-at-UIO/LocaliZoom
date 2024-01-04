@@ -10,7 +10,7 @@ boundaries and annotate points in order to extract coordinates.
 Use the webapp here: https://wiki.ebrains.eu/bin/view/Collabs/image-registration-and-analysis-demo
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image4.png
-   :width: 5.9in
+   :width: 5.4in
    :height: 2.88611in
 
 Dataset DOI: 10.25493/G6CQ-D4D
@@ -33,7 +33,7 @@ The coordinates for each markers are found under fx, fy, fz. Those coordinates c
 This notepad file can be pasted in MeshView for you to visualise your electrode tracks.
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image5.png
-   :width: 6.30139in
+   :width: 6.3139in
    :height: 2.59306in
 
 
@@ -44,11 +44,11 @@ The saved .lz file can also be visualised in the 3D viewer, MeshView (https://me
 Read more about MeshView here: https://meshview-for-brain-atlases.readthedocs.io/en/latest/ 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image10.png
-   :width: 5.9in
+   :width: 5.4in
    :height: 2.88611in
 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image11.png
-   :width: 5.9in
+   :width: 5.4in
    :height: 2.88611in
 
