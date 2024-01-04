@@ -10,7 +10,7 @@ boundaries and annotate points in order to extract coordinates.
 Use the webapp here: https://wiki.ebrains.eu/bin/view/Collabs/image-registration-and-analysis-demo
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image4.png
-   :width: 6.3in
+   :width: 5.9in
    :height: 2.88611in
 
 Dataset DOI: 10.25493/G6CQ-D4D
@@ -28,7 +28,7 @@ Save your annotations with the "save" or "save as" buttons. The file format is .
 
 **Export to Excel**
 
-The markers will be listed 1,2,3,4, etc.. in the order you place them. In the example below, electrode tracks were mapped. In order to keep track of which marker belong to which electrode, you can asign a different color to each electrode and start placing the markers on your images in a systematic way e.g. (marker 1: yellow; marker 2:green, etc...).
+The markers will be listed 1,2,3,4, etc.. in the order you place them. In the example below, electrode tracks were mapped. In order to keep track of which marker belong to which electrode, you can assign a different color to each electrode and start placing the markers on your images in a systematic way e.g. (marker 1: yellow; marker 2:green, etc...).
 The coordinates for each markers are found under fx, fy, fz. Those coordinates can be copied and arranged in a notepad file as shown in the figure where you can assign a RGB code to the marker list.
 This notepad file can be pasted in MeshView for you to visualise your electrode tracks.
 
@@ -44,11 +44,11 @@ The saved .lz file can also be visualised in the 3D viewer, MeshView (https://me
 Read more about MeshView here: https://meshview-for-brain-atlases.readthedocs.io/en/latest/ 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image10.png
-   :width: 6.3in
+   :width: 5.9in
    :height: 2.88611in
 
 
 .. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image11.png
-   :width: 6.3in
+   :width: 5.9in
    :height: 2.88611in
 
