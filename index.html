@@ -29,6 +29,26 @@
                     setlog(`Can't access JSON descriptor at ${jsonurl}. Please verify that the link is correct and that it's available for cross-site access ("CORS").\n${json.message}`);
                     return;
                 }
+                document.getElementById("pyramids").hidden=!!json.bucket;
+                if(json.bucket) {
+                    let slices=json.sections;
+                    let length=slices.length;
+                    if(!length){
+                        setlog(`${jsonurl} contains no images.`);
+                        return;
+                    }
+                    if(!slices[0].filename.endsWith(".dzip")){
+                        setlog(`${jsonurl} contains non-dzip images. Please contact developer.`);
+                        return;
+                    }
+                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}`;
+                    let antools=`${baselink}&tools`;
+                    let nltools=`${antools}&nl`;
+                    log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
+                                  `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
+                                  `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+                    return;
+                }
                 let slices=json.slices;
                 let length=slices.length;
                 if(!pyramids.length){

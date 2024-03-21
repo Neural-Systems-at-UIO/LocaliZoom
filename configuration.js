@@ -7,6 +7,39 @@ const loaders = {
 };
 
 async function transformSeries(series) {
+    if(series.bucket) {
+        series.slices = series.sections.map(section => ({
+            filename: section.filename,
+            nr: section.snr,
+            width: section.width,
+            height: section.height,
+            anchoring: section.ouv,
+            markers: section.markers
+        }));
+        const dzipmap = new Map;
+        loaders.DZILoader = async section_id => {
+            if(!dzipmap.has(section_id)) {
+                dzipmap.set(section_id, await netunzip(`https://data-proxy.ebrains.eu/api/v1/buckets/${series.bucket}/.nesysWorkflowFiles/zippedPyramids/${section_id}`));
+            }
+            const zip = dzipmap.get(section_id);
+            return new TextDecoder().decode(await zip.get(zip.entries.get(section_id.match(/.*\/(.*)p/)[1])));
+        };
+        loaders.TileLoader = async (section_id, level, x, y, format) => {
+            const zip = dzipmap.get(section_id);
+            const data = await zip.get(zip.entries.get(`${section_id.match(/.*\/(.*).dzip/)[1]}_files/${level}/${x}_${y}.${format}`));
+            const url = URL.createObjectURL(new Blob([data], {type: `image/${format}`}));
+            const img = document.createElement("img");
+            await new Promise(resolve => {
+                img.onload = () => {
+                    URL.revokeObjectURL(url);
+                    resolve();
+                };
+                img.src = url;
+            });
+            return img;
+        };
+        return;
+    }
     /*
      * convert extensions to .tif except when directed otherwise:
      */
