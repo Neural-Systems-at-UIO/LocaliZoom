@@ -29,7 +29,7 @@
                     setlog(`Can't access JSON descriptor at ${jsonurl}. Please verify that the link is correct and that it's available for cross-site access ("CORS").\n${json.message}`);
                     return;
                 }
-                document.getElementById("pyramids").hidden=!!json.bucket;
+                document.getElementById("pyrs").hidden=!!json.bucket;
                 if(json.bucket) {
                     let slices=json.sections;
                     let length=slices.length;
@@ -42,6 +42,15 @@
                         return;
                     }
                     let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}`;
+                    let antools=`${baselink}&tools`;
+                    let nltools=`${antools}&nl`;
+                    log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
+                                  `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
+                                  `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+                    return;
+                }
+                if(pyramids.endsWith(".dzip")) {
+                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}&dzip=${pyramids}`;
                     let antools=`${baselink}&tools`;
                     let nltools=`${antools}&nl`;
                     log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
@@ -115,9 +124,20 @@
     </head>
     <body>
         LocaliZoom link configurator<br><br>
-        <input type="text" id="json" placeholder="Complete URL for JSON, https://object.cscs.ch/.../xy.json" oninput="check()"><br>
-        <input type="text" id="pyramids" placeholder="Container ID only, like &quot;imgsvc-17b7fa98-a152-995b-86d2-fde75106ce0f&quot;, or a collab-slug prefixed with &quot;buckets/&quot;" oninput="check()"><br>
-        <select id="atlas">
+        Dataset descriptor, complete URL of QuickNII/VisuAlign (.json), WebAlign (.waln), WebWarp (.wwrp), or LocaliZoom (.lz) file:<br>
+        <input type="text" id="json" oninput="check()"><br>
+        <br>
+        <div id="pyrs">
+            Pyramids
+            <ul>
+                <li>CSCS container ID, like &quot;imgsvc-17b7fa98-a152-995b-86d2-fde75106ce0f&quot; (see first example)</li>
+                <li>Collab-slug prefixed with &quot;buckets/&quot; (see second example)</li>
+                <li>Complete link ("API Url") to any .dzip file from the series</li>
+            </ul>
+            <input type="text" id="pyramids" placeholder="Container ID only, like , or a collab-slug prefixed with &quot;buckets/&quot;" oninput="check()"><br>
+        <br>
+        </div>
+        <select id="atlas" oninput="check()">
             <option value="WHS_SD_Rat_v4_39um">WHS SD Rat v4 39um</option>
             <option value="WHS_SD_Rat_v3_39um">WHS SD Rat v3 39um</option>
             <option value="WHS_SD_Rat_v2_39um">WHS SD Rat v2 39um</option>

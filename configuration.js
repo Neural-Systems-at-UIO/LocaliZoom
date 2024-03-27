@@ -16,10 +16,20 @@ async function transformSeries(series) {
             anchoring: section.ouv,
             markers: section.markers
         }));
+        series.dziproot = `https://data-proxy.ebrains.eu/api/v1/buckets/${series.bucket}/.nesysWorkflowFiles/zippedPyramids`;
+    }
+    if(args.dzip) {
+        series.dziproot = args.dzip.match(/(.*zippedPyramids).*/)[1];
+        const prefix = args.dzip.match(/.*zippedPyramids\/(.*)\/.*$/)[1];
+        for(let section of series.slices) {
+            section.filename = prefix + "/" + section.filename.split(".")[0] + ".dzip";
+        }
+    }
+    if(series.dziproot) {
         const dzipmap = new Map;
         loaders.DZILoader = async section_id => {
             if(!dzipmap.has(section_id)) {
-                dzipmap.set(section_id, await netunzip(`https://data-proxy.ebrains.eu/api/v1/buckets/${series.bucket}/.nesysWorkflowFiles/zippedPyramids/${section_id}`));
+                dzipmap.set(section_id, await netunzip(`${series.dziproot}/${section_id}`));
             }
             const zip = dzipmap.get(section_id);
             return new TextDecoder().decode(await zip.get(zip.entries.get(section_id.match(/.*\/(.*)p/)[1])));
