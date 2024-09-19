@@ -120,6 +120,12 @@
                 pyramids.value="buckets/img-46e866da-c645-11ec-aa7f-00090faa0001";
                 check();                
             }
+            function dzip(){
+                atlas.selectedIndex=0;
+                json.value="https://data-proxy.ebrains.eu/api/v1/buckets/img-8992ccf2-e993-4fb3-996a-f5ba4780856f/.nesysWorkflowFiles/zippedPyramids/AdenosineA1/dpmg_col_all_LZ.json";
+                pyramids.value="https://data-proxy.ebrains.eu/api/v1/buckets/img-8992ccf2-e993-4fb3-996a-f5ba4780856f/.nesysWorkflowFiles/zippedPyramids/AdenosineA1/wt272_dpmg_col_s020.dzip";
+                check();                
+            }
         </script>
     </head>
     <body>
@@ -130,9 +136,9 @@
         <div id="pyrs">
             Pyramids
             <ul>
-                <li>CSCS container ID, like &quot;imgsvc-17b7fa98-a152-995b-86d2-fde75106ce0f&quot; (see first example)</li>
-                <li>Collab-slug prefixed with &quot;buckets/&quot; (see second example)</li>
-                <li>Complete link ("API Url") to any .dzip file from the series</li>
+                <li>CSCS container ID, old ones, usually starting with "<b>imgsvc-</b>". <button onclick="E15()">Example</button></li>
+                <li>Collab-slug prefixed with "<b>buckets/</b>". <button onclick="bucket()">Example</button></li>
+                <li>Complete link to any .dzip file from the series ("Get API Url", after "Open in Bucket"). <button onclick="dzip()">Example</button></li>
             </ul>
             <input type="text" id="pyramids" placeholder="Container ID only, like , or a collab-slug prefixed with &quot;buckets/&quot;" oninput="check()"><br>
         <br>
@@ -145,13 +151,6 @@
             <option value="ABA_Mouse_CCFv3_2015_25um">AMBA CCFv3 2015 25um</option>
             <option value="ABA_Mouse_CCFv2_25um">AMBA CCFv2 25um</option>
         </select>
-        <!--<button onclick="location.href='filmstripzoom.html?atlas='+atlas.value+'&series='+json.value+'&amp;pyramids='+pyramids.value">Go</button>-->
-        <hr>
-        Demo datasets:
-        <ul>
-            <li>CSCS-hosted ("<b>imgsvc-7e9a11b7-b27f-67d7-95c8-3b72bb5086e9</b>") mouse set, "E15" <button onclick="E15()">Pick</button></li>
-            <li>Collab-hosted ("<b>buckets/img-46e866da-c645-11ec-aa7f-00090faa0001</b>") rat set <button onclick="bucket()">Pick</button></li>
-        </ul>
         <hr>
         <div id="warn" hidden style="font-weight:bold;color:red">Pyramids of non TIFF images detected. </div>
         <div id="log"></div>
