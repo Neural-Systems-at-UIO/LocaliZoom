@@ -26,8 +26,8 @@ async function transformSeries(series) {
         }
     }
 
-    if (args.dzips) {
-        series.dziproot = args.dzips.split("/").slice(0, -1).join("/");
+    if (args.dziproot) {
+        series.dziproot = args.dziproot;
     }
     if(series.dziproot) {
         const dzipmap = new Map;
