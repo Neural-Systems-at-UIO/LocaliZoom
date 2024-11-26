@@ -36,11 +36,11 @@ async function transformSeries(series) {
                 dzipmap.set(section_id, await netunzip(`${series.dziproot}/${section_id}`));
             }
             const zip = dzipmap.get(section_id);
-            return new TextDecoder().decode(await zip.get(zip.entries.get(section_id.match(/.*\/(.*)p/)[1])));
+            return new TextDecoder().decode(await zip.get(zip.entries.get(section_id.match(/(?:.*\/)?(.*)p/)[1])));
         };
         loaders.TileLoader = async (section_id, level, x, y, format) => {
             const zip = dzipmap.get(section_id);
-            const data = await zip.get(zip.entries.get(`${section_id.match(/.*\/(.*).dzip/)[1]}_files/${level}/${x}_${y}.${format}`));
+            const data = await zip.get(zip.entries.get(`${section_id.match(/(?:.*\/)?(.*).dzip/)[1]}_files/${level}/${x}_${y}.${format}`));
             const url = URL.createObjectURL(new Blob([data], {type: `image/${format}`}));
             const img = document.createElement("img");
             await new Promise(resolve => {
