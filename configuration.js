@@ -25,6 +25,10 @@ async function transformSeries(series) {
             section.filename = prefix + "/" + section.filename.split(".")[0] + ".dzip";
         }
     }
+
+    if (args.dziproot) {
+        series.dziproot = args.dziproot;
+    }
     if(series.dziproot) {
         const dzipmap = new Map;
         loaders.DZILoader = async section_id => {
