@@ -26,6 +26,16 @@ async function transformSeries(series) {
         }
     }
 
+    /*
+     * transform certain parts of filenames (like _thumbnail), comma separated
+     */
+    if (args.transform) {
+        const parts = args.transform.split(",").map(part => part.split("="));
+        for (const slice of series.slices)
+            for (const part of parts)
+                slice.filename = slice.filename.replaceAll(part[0], part.length > 1 ? part[1] : "");
+    }
+
     if (args.dziproot) {
         series.dziproot = args.dziproot;
     }
