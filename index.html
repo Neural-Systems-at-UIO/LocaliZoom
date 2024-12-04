@@ -50,7 +50,7 @@
                     return;
                 }
                 if(pyramids.endsWith(".dzip")) {
-                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}&dzip=${pyramids}`;
+                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}&dziproot=${pyramids.match(/(.*\/)/)[1]}`;
                     let antools=`${baselink}&tools`;
                     let nltools=`${antools}&nl`;
                     log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
