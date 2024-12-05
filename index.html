@@ -20,6 +20,7 @@
                     if(lock===stamp)
                         log.innerText=msg;
                 }
+                document.getElementById("trfbox").hidden=true;
                 setlog("");
                 if(pyramids.startsWith("img-"))
                     setlog("Shouldn't it be buckets/"+pyramids+"?\n\n");
@@ -50,12 +51,19 @@
                     return;
                 }
                 if(pyramids.endsWith(".dzip")) {
-                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}&dziproot=${pyramids.match(/(.*\/)/)[1]}`;
-                    let antools=`${baselink}&tools`;
-                    let nltools=`${antools}&nl`;
-                    log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
-                                  `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
-                                  `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+//                    let dziproot=pyramids.match(/(.*\/)/)[1];
+                    const [dziproot,bucket,path]=pyramids.match(/(.*?\/buckets\/.+?)\/(.*\/)?/);
+                    const dzips=await fetch((path?bucket+"?prefix="+path:bucket)+"&limit=10000")
+                            .then(response=>response.json())
+                            .then(json=>json.objects.map(obj=>obj.name.substring(path?path.length:0)).filter(name=>name.endsWith(".dzip")));
+                    let baselink=`${location.href.match(/(.*\/)[^/]*/)[1]}filmstripzoom.html?atlas=${atlas.value}&series=${jsonurl}&dziproot=${dziproot}`;
+//                    let antools=`${baselink}&tools`;
+//                    let nltools=`${antools}&nl`;
+//                    log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
+//                                  `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
+//                                  `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+                    trfparams={baselink,dzips,sections:json.slices.map(slice=>slice.filename)};
+                    transform();
                     return;
                 }
                 let slices=json.slices;
@@ -126,6 +134,38 @@
                 pyramids.value="https://data-proxy.ebrains.eu/api/v1/buckets/img-8992ccf2-e993-4fb3-996a-f5ba4780856f/.nesysWorkflowFiles/zippedPyramids/AdenosineA1/wt272_dpmg_col_s020.dzip";
                 check();                
             }
+            let trfparams;
+            function transform(){
+                let {baselink,dzips,sections}=trfparams;
+                const trf=document.getElementById("trf").value;
+                if(trf)baselink+="&transform="+trf;
+                let antools=`${baselink}&tools`;
+                let nltools=`${antools}&nl`;
+                log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
+                              `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
+                              `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+                document.getElementById("trfbox").hidden=false;
+                const parts=trf.split(",").map(part=>part.split("="));
+                let rows="";
+                for(let name of sections){
+                    if(parts)
+                        for (const part of parts)
+                            name=name.replaceAll(part[0],part.length>1?part[1]: "");
+                    const _s=name.match(/(_s\d+)/);
+                    let pair="?";
+                    if(_s){
+                        for(const dzip of dzips)
+                            if(dzip.includes(_s[0]))
+                                pair=dzip;
+                    }
+                    let match=0;
+                    while(match<name.length && match<pair.length && name[match]===pair[match])
+                        match++;
+                    rows+=`<tr><td>${name.substring(0,match)}<span style="font-weight:bold;color:red">${name.substring(match)}</span></td>
+                           <td>${pair.substring(0,match)}<span style="font-weight:bold;color:red">${pair.substring(match)}</span></td></tr>`;
+                }
+                document.getElementById("pairs").innerHTML=rows;
+            }
         </script>
     </head>
     <body>
@@ -154,5 +194,14 @@
         <hr>
         <div id="warn" hidden style="font-weight:bold;color:red">Pyramids of non TIFF images detected. </div>
         <div id="log"></div>
+        <div id="trfbox" hidden>
+            <input type="text" id="trf" placeholder="Comma separated list of replacements and deletions, like .png=.dzip,_thumbnail" oninput="transform()"><br>
+            <table border="1">
+                <thead>
+                <th>Transformed JSON</th><th>Actual file</th>
+                </thead>
+                <tbody id="pairs"></tbody>
+            </table>
+        </div>
     </body>
 </html>
