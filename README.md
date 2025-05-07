@@ -3,7 +3,7 @@ EBRAINS LocaliZoom serial section image viewer provides an intuitive way of navi
 
 
 # Acknowledgements
-Localizoom is developed by the Neural Systems Laboratory at the Institute of Basic Medical Sciences, University of Oslo, Norway. Localizoom was developed with support from the EBRAINS infrastructure, and funding from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under the Framework Partnership Agreement No. 650003 (HBP FPA).
+Localizoom is developed by the Neural Systems Laboratory at the Institute of Basic Medical Sciences, University of Oslo, Norway. Localizoom was developed with support from the EBRAINS infrastructure, and funding from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under the Framework Partnership Agreement No. 650003 (HBP FPA) and the European Union’s Horizon Europe Programme for Research Infrastructures Grant Agreement No. 101147319 (EBRAINS 2.0).
 
 # Developper
 Gergely Csucs
@@ -13,6 +13,9 @@ Gergely Csucs
 
 # Licence
 - MIT licence
+
+# current version
+v0.9
 
 # Contact us
 Report issues here on github or email: support@ebrains.eu
