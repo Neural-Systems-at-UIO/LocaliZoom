@@ -20,9 +20,10 @@
     "identifier": "RRID:SCR_023481",
     "license": "https://spdx.org/licenses/MIT",
     "name": "LocaliZoom",
+    "version": "0.9"
     "programmingLanguage": "JavaScript",
     "runtimePlatform": "Web",
     "developmentStatus": "active",
-    "funding": "H2020-EU FPA 650003 (HBP FPA)",
+    "funding": "H2020-EU FPA 650003 (HBP FPA) and HORIZON-INFRA (EBRAINS 2.0) 101147319",
     "issueTracker": "https://github.com/Neural-Systems-at-UIO/LocaliZoom/issues"
 }
