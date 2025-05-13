@@ -74,7 +74,8 @@
                 }
                 let pyramidbase=(pyramids.startsWith("buckets/")?
                     "https://data-proxy.ebrains.eu/api/v1/public/":
-                    "https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/")+pyramids;
+//                    "https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/")+pyramids;
+                    "https://data-proxy.ebrains.eu/api/v1/buckets/p08c08-")+pyramids;
                 let fail=false;
                 let nontiff=false;
                 for(let i=0;i<length;i++){

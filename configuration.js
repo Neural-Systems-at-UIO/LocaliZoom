@@ -100,12 +100,14 @@ async function transformSeries(series) {
          * pyramids in legacy image service container
          */
         loaders.DZILoader = section_id =>
-            fetch(`https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}.dzi`).then(response => response.text());
+//            fetch(`https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}.dzi`).then(response => response.text());
+            fetch(`https://data-proxy.ebrains.eu/api/v1/buckets/p08c08-${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}.dzi`).then(response => response.text());
         loaders.TileLoader = async (section_id, level, x, y, format) => {
             const img = document.createElement("img");
             await new Promise(resolve => {
                 img.onload = resolve;
-                img.src = `https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}_files/${level}/${x}_${y}.${format}`;
+//                img.src = `https://object.cscs.ch/v1/AUTH_08c08f9f119744cbbf77e216988da3eb/${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}_files/${level}/${x}_${y}.${format}`;
+                img.src = `https://data-proxy.ebrains.eu/api/v1/buckets/p08c08-${args.pyramids}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}_files/${level}/${x}_${y}.${format}`;
             });
             return img;
         };
