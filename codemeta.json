@@ -20,7 +20,7 @@
     "identifier": "RRID:SCR_023481",
     "license": "https://spdx.org/licenses/MIT",
     "name": "LocaliZoom",
-    "version": "0.9"
+    "version": "0.9",
     "programmingLanguage": "JavaScript",
     "runtimePlatform": "Web",
     "developmentStatus": "active",
