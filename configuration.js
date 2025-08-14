@@ -2,8 +2,8 @@ const loaders = {
     SeriesLoader: async series_id => fetch(series_id).then(response => response.json()),
     DZILoader: () => {},
     TileLoader: () => {},
-    AtlasLoader: async atlas_id => fetch(atlas_id + ".json").then(response => response.json()),
-    AtlasVolumeLoader: async atlas_id => fetch(atlas_id + ".pack").then(response => response.arrayBuffer())
+    AtlasLoader: async atlas_id => fetch("https://data-proxy.ebrains.eu/api/v1/buckets/quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".json").then(response => response.json()),
+    AtlasVolumeLoader: async atlas_id => fetch("https://data-proxy.ebrains.eu/api/v1/buckets/quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".pack").then(response => response.arrayBuffer())
 };
 
 async function transformSeries(series) {
