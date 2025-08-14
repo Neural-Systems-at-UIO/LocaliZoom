@@ -167,9 +167,19 @@
                 }
                 document.getElementById("pairs").innerHTML=rows;
             }
+            
+            function DeMBAfill(){
+                const sel=document.getElementById("atlas");
+                for(let i=4;i<57;i++) {
+                    const opt=document.createElement("option");
+                    opt.innerText=`DeMBA P${i} 2022 20um`;
+                    opt.value=`DeMBA_P${i}_2022_20um`;
+                    sel.appendChild(opt);
+                }
+            }
         </script>
     </head>
-    <body>
+    <body onload="DeMBAfill()">
         LocaliZoom link configurator<br><br>
         Dataset descriptor, complete URL of QuickNII/VisuAlign (.json), WebAlign (.waln), WebWarp (.wwrp), or LocaliZoom (.lz) file:<br>
         <input type="text" id="json" oninput="check()"><br>
