@@ -916,7 +916,7 @@
                         const ix = (i, j) => j * (j - 1) / 2 + i;
                         const edges = [2, 2, 2, 0, 2, 2];
 
-                        if (!args.linear)
+                        if (!args.linear && allmarkers[section.id])
                             for (const marker of allmarkers[section.id]) {
                                 const D = [marker.nx, marker.ny];
                                 let found = false;
