@@ -215,7 +215,6 @@
                 if (args.view) {
                     document.getElementById("tools").style.display = "none";
                 } else {
-                    document.getElementById("tools").style.top = document.getElementById("status").offsetHeight + "px";
                     if (args.nl) {
                         document.getElementById("toggleNL").style.display = "inline";
                     } else {
@@ -1316,7 +1315,8 @@
                     <div id="antools">
                         Marker color: <input type="color" id="ancolor" value="#000000" oninput="drawImage()" style="height: 18px">
                         <!--<button onclick="load()">Load</button><button onclick="save()" id="btn_save">Save</button>-->
-                        Export to <button onclick="excel()">Excel</button> or <button onclick="meshview()">MeshView</button> (all slices).
+                        Export to <button onclick="excel()">Excel</button> or <button onclick="meshview()">MeshView</button>.
+                        <button onclick="meshview_cb()">Copy to Clipboard</button> (MeshView-format).
                     </div>
                     <div id="nltools">
                         Marker color: <input type="color" id="nlcolor" value="#000000" oninput="drawImage()" style="height: 18px">
