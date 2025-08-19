@@ -180,12 +180,12 @@
         </script>
     </head>
     <body onload="DeMBAfill()">
-        LocaliZoom link configurator<br><br>
+        <b>LocaliZoom link configurator</b><br><br>
         Dataset descriptor, complete URL of QuickNII/VisuAlign (.json), WebAlign (.waln), WebWarp (.wwrp), or LocaliZoom (.lz) file:<br>
         <input type="text" id="json" oninput="check()"><br>
         <br>
         <div id="pyrs">
-            Pyramids
+            <b>Pyramids</b>
             <ul>
                 <li>CSCS container ID, old ones, usually starting with "<b>imgsvc-</b>". <button onclick="E15()">Example</button></li>
                 <li>Collab-slug prefixed with "<b>buckets/</b>". <button onclick="bucket()">Example</button></li>
@@ -206,6 +206,8 @@
         <div id="warn" hidden style="font-weight:bold;color:red">Pyramids of non TIFF images detected. </div>
         <div id="log"></div>
         <div id="trfbox" hidden>
+            <hr>
+            <b>Transformation</b><br><br>
             <input type="text" id="trf" placeholder="Comma separated list of replacements and deletions, like .png=.dzip,_thumbnail" oninput="transform()"><br>
             <table border="1">
                 <thead>
