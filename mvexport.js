@@ -18,7 +18,7 @@ function meshview() {
     };
 }
 
-async function meshview_cb() {
+function meshview_cb() {
     allpoi[section_id] = poi;
     const alltriplets = [];
     for (const section of filmstrip.getmeta()) {
@@ -28,8 +28,10 @@ async function meshview_cb() {
             alltriplets.push(...triplets);
         }
     }
-    if(alltriplets.length===0)
+    if(alltriplets.length===0){
+        popover("Nothing to copy.");
         return;
+    }
     
     let message = prompt("Name of cloud?");
     if(message===null)
@@ -42,7 +44,15 @@ async function meshview_cb() {
     message = `#${message}\nRGB ${r} ${g} ${b}\n`;
     for(let i=0;i<alltriplets.length;i+=3)
         message+=`${alltriplets[i]} ${alltriplets[i+1]} ${alltriplets[i+2]}\n`;
-    await navigator.clipboard.writeText(message);
+    navigator.clipboard.writeText(message)
+            .then(()=>popover("Data copied to clipboard."))
+            .catch(ex=>alert(ex));
+}
+function popover(html){
+    const p=document.getElementById("popover");
+    p.innerHTML=html;
+    p.showPopover();
+   setTimeout(()=>p.hidePopover(),2000);
 }
 
 function processSection(section,pois) {
