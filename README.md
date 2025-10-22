@@ -3,7 +3,7 @@ EBRAINS LocaliZoom serial section image viewer provides an intuitive way of navi
 
 **Users can access LocaliZoom through the LocaliView service**
 
-# Access: https://localiview.apps.ebrains.eu/
+## Access: https://localiview.apps.ebrains.eu/
 
 <img width="2091" height="1170" alt="LocaliView UI" src="https://github.com/user-attachments/assets/ed8b2172-fccf-45be-ae8a-34c7f22e219f" />
 
