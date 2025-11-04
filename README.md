@@ -1,27 +1,24 @@
 # LocaliZoom
 EBRAINS LocaliZoom serial section image viewer provides an intuitive way of navigating high resolution 2D image series coupled with segmentation overlay, from a web browser. At its core, it is a web-based pan-and-zoom 2D image viewer coupled with a volumetric atlas slicer, and a navigational aid showing the entire image series as a “filmstrip”. Building on the open standard Deep Zoom Image (DZI) format, it is able to efficiently visualise very large brain images in the gigapixel range, allowing to zoom from common, display-sized overview resolutions down to the microscopic resolution without downloading the underlying very large image dataset.
 
-**Users can access LocaliZoom through the LocaliView service**
+# Access: **Users can access LocaliZoom through the LocaliView service**
 
-## Access: https://localiview.apps.ebrains.eu/
+https://localiview.apps.ebrains.eu/
 
 <img width="2091" height="1170" alt="LocaliView UI" src="https://github.com/user-attachments/assets/ed8b2172-fccf-45be-ae8a-34c7f22e219f" />
 
-
-# Developper
-Gergely Csucs
+# Latest stable version
+Version v0.9
 
 # Documentation
 https://localizoom.readthedocs.io/en/latest/
 
-# Authors
- Maja A Puchades, Jan G Bjaalie. 
+# Contributors
+- Programming: Gergely Csucs
+- Conception, design, validation:  Maja Puchades, Sharon Yates, Jan Bjaalie.
 
 # Licence
 MIT licence
-
-# Current version
-Version v0.9
 
 # Citation
 **LocaliZoom (RRID:SCR_023481)**
