@@ -21,6 +21,7 @@ International for the main component. Source code: MIT License.
   Software and pipelines for registration and analyses of rodent brain image data in reference atlas space. Frontiers of Neuroinformations. 2025. https://doi.org/10.3389/fninf.2025.1629388
    
 **Access**
+~~~~~~~~~~~~~~~~~~~~~~
 
 LocaliZoom can be accessed through our integrated workflow with an EBRAINs account: 
 
