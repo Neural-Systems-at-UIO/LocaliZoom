@@ -34,7 +34,17 @@ The LocaliView workflow is accessible with an EBRAINS account.
 
 Dataset DOI: https://doi.org/10.25493/G5VR-63E     
 
+*Which atlases are supported*
 
+**Which atlases are supported?**
+-----------------------------
+1. Allen Mouse Brain Atlas Common Coordinate Framework version 3 (2015 and 2017) (CCFv3) (Wang et al. 2020. Cell, https://doi.org/10.1016/j.cell.2020.04.007. Epub 2020 May 7; RRID:JCR_020999 and RRID:JRC_021000) 
+2. Waxholm Atlas of the Sprague Dawley rat, version 3 and 4 (WHS rat brain atlas) (Osen et al. 2019. NeuroImage, https:doi.org/10.1016/j.neuroimage.2019.05.016; Kleven et al. Nat Methods, 2020. https://doi.org/10.1038/s41592-023-02034-3; RRID:SCR_017124)
+
+**What is the output of LocaliZoom?**
+---------------------------------
+
+-A registration file (lz format) containing the coordinates of your annotated points in atlas space. This file is then used in the workflows automatically.
 
 
 
