@@ -7,8 +7,9 @@ Localizoom: Viewer and annotation of 2D image brain sections
 
    introduction
    installation
+   Acknowledgements
    support
-   publications
+ 
  
    
    
@@ -18,7 +19,6 @@ Localizoom: Viewer and annotation of 2D image brain sections
    
 .. toctree::
    :caption: Operations
-   :numbered:
    :maxdepth: 3
    
    basic
