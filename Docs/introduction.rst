@@ -1,4 +1,4 @@
-**Introduction**
+**What is LocaliZoom?**
 ------------------- 
 EBRAINS LocaliZoom serial section image viewer provides an intuitive way
 of navigating high-resolution 2D image series coupled with segmentation
@@ -11,8 +11,16 @@ allowing to zoom from common, display-sized overview resolutions down to
 the microscopic resolution without downloading the underlying very large
 image dataset.
 
-In addition, LocaliZoom is available as a web app in the EBRAINS collaboratory.
-A Demo dataset is present in a Demo collab: https://wiki.ebrains.eu/bin/view/Collabs/image-registration-and-analysis-demo
+
+.. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image7.png
+   :width: 6.3in
+   :height: 3.75in
+
+
+In addition, LocaliZoom is available as a web app in the EBRAINS workflow LocaliView.
+The LocaliView workflow is accessible with an EBRAINS account.
+
+    https://localiview.apps.ebrains.eu/
 
 *Key features*:
   - Visualisation of experimental histological section images with atlas overlay 
@@ -24,14 +32,9 @@ A Demo dataset is present in a Demo collab: https://wiki.ebrains.eu/bin/view/Col
    :width: 6.30139in
    :height: 2.75417in
 
-Dataset DOI: 10.25493/G5VR-63E     
- 
-**Access via EBRAINS**:
+Dataset DOI: https://doi.org/10.25493/G5VR-63E     
 
 
-.. image:: vertopal_f685c684f9f741c382a00fa63533872a/media/image7.png
-   :width: 6.3in
-   :height: 3.75in
 
 
 
