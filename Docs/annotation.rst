@@ -9,7 +9,7 @@ boundaries and annotate points in order to extract coordinates.
 
 Use the webapp here: https://localiview.apps.ebrains.eu/
 
-.. image:: LZ_GUI.png
+.. image:: images/LZ_GUI.png
    :width: 5.4in
    :height: 2.88611in
 
