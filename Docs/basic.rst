@@ -1,5 +1,11 @@
-**LocaliZoom viewer only**
+**LocaliZoom viewer service in dataset cards**
 -------------------------------
+These links can be found in certain EBRAINS datasets like e.g. Cullity et al. (2021). Distribution of dopamine 2 receptor positive neurons in the juvenile female mouse brain (v1) [Data set]. EBRAINS. https://doi.org/10.25493/G5VR-63E
+
+By clicking on the viewer link at the bottom of the dataset card, you can open the image series in LocaliZoom.
+
+
+
 **Basic operations**
 
 
