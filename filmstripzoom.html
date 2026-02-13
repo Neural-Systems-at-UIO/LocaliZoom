@@ -533,7 +533,7 @@
                 triangulate();
 
                 var meta = document.getElementById("metadata");
-                meta.innerHTML = /*ouv.name*/section_id + "<br>" + cfg.Width.toString() + " x " + cfg.Height.toString() + "<br>"
+                meta.innerHTML = /*ouv.name*/section_id.match(/(.*?)(.tiff?|.png|.jpe?g)?(.dzip?)?$/)[1] + "<br>" + cfg.Width.toString() + " x " + cfg.Height.toString() + "<br>"
                         + atlas.name
                         + (args.prev ? "" : ("<br><a href='http://cmbn-navigator.uio.no/navigator/feeder/original/?id=" + section_id + "' target='_blank'>Download image</a>"));
 //                meta.style.left=window.innerWidth-meta.scrollWidth-5+"px";

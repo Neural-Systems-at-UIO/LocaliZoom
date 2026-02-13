@@ -68,6 +68,7 @@ var filmstrip = {};
 
         for (const item of arry) {
             const div = document.createElement("div");
+            div.title = item.id.match(/(.*?)(.tiff?|.png|.jpe?g)?(.dzip?)?$/)[1];
             observer.observe(div);
             item.key = div;
             iconmap.set(div, item);
@@ -88,11 +89,11 @@ var filmstrip = {};
                 ctx.drawImage(ovly, 0, 0, w, h);
             }
         }
-        activate({target: arry[idx].key.firstElementChild});
+        activate({target: arry[idx].key.firstElementChild}, true);
     }
 
     let active;
-    function activate(event) {
+    function activate(event, start) {
         const target = event.target.parentElement;
         if (active === target)
             return;
@@ -100,7 +101,11 @@ var filmstrip = {};
             active.classList.remove("active");
         active = target;
         active.classList.add("active");
-        active.scrollIntoView({block: "center"});
+        active.scrollIntoView({
+            behavior: start ? "instant" : "smooth",
+            block: start ? "center" : "nearest",
+            container: "nearest"
+        });
         dispatchOuv(iconmap.get(target));
     }
 
