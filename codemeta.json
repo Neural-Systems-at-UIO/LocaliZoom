@@ -1,29 +1,100 @@
 {
-    "@context": "https://w3id.org/codemeta/3.0",
-    "type": "SoftwareSourceCode",
-    "author": [
-        {
-            "id": "https://orcid.org/0000-0002-2093-6274",
-            "type": "Person",
-            "affiliation": {
-                "type": "Organization",
-                "name": "NeSys, University of Oslo"
-            },
-            "familyName": "Csucs",
-            "givenName": "Gergely"
-        }
-    ],
-    "codeRepository": "https://github.com/Neural-Systems-at-UIO/LocaliZoom.git",
-    "dateCreated": "2016-06-17",
-    "dateModified": "2025-02-21",
-    "datePublished": "2016-10-08",
-    "identifier": "RRID:SCR_023481",
-    "license": "https://spdx.org/licenses/MIT",
-    "name": "LocaliZoom",
-    "version": "0.9",
-    "programmingLanguage": "JavaScript",
-    "runtimePlatform": "Web",
-    "developmentStatus": "active",
-    "funding": "H2020-EU FPA 650003 (HBP FPA) and HORIZON-INFRA (EBRAINS 2.0) 101147319",
-    "issueTracker": "https://github.com/Neural-Systems-at-UIO/LocaliZoom/issues"
+  "@context": "https://w3id.org/codemeta/3.0",
+  "@type": "SoftwareSourceCode",
+  "name": "LocaliZoom",
+  "identifier": "RRID:RRID:SCR_023481",
+  "description": "EBRAINS LocaliZoom serial section image viewer provides an intuitive way of navigating high resolution 2D image series coupled with segmentation overlay, from a web browser. At its core, it is a web-based pan-and-zoom 2D image viewer coupled with a volumetric atlas slicer, and a navigational aid showing the entire image series as a “filmstrip”. Building on the open standard Deep Zoom Image (DZI) format, it is able to efficiently visualise very large brain images in the gigapixel range, allowing to zoom from common, display-sized overview resolutions down to the microscopic resolution without downloading the underlying very large image dataset.",
+  "author": [
+    {
+      "givenName": "Gergely",
+      "familyName": "Csucs",
+      "type": "Person",
+      "id": "https://orcid.org/0000-0002-2093-6274",
+      "affiliation": {
+        "type": "Organization",
+        "name": "NeSys lab, University of Oslo"
+      }
+    },
+    {
+      "givenName": "Sharon C.",
+      "familyName": "Yates",
+      "type": "Person",
+      "id": "https://orcid.org/0000-0002-3001-8725",
+      "affiliation": {
+        "type": "Organization",
+        "name": "NeSys lab, University of Oslo"
+      }
+    },
+    {
+      "givenName": "Maja A.",
+      "familyName": "Puchades",
+      "type": "Person",
+      "id": "https://orcid.org/0000-0002-4536-8197",
+      "affiliation": {
+        "type": "Organization",
+        "name": "NeSys lab, University of Oslo"
+      }
+    },
+    {
+      "givenName": "Jan G.",
+      "familyName": "Bjaalie",
+      "type": "Person",
+      "id": "https://orcid.org/0000-0001-7899-906X",
+      "affiliation": {
+        "type": "Organization",
+        "name": "NeSys lab, University of Oslo"
+      }
+    }
+  ],
+  "license": [
+    "https://spdx.org/licenses/MIT"
+  ],
+  "dateModified": "2021-02-21",
+  "codeRepository": "https://github.com/Neural-Systems-at-UIO/LocaliZoom.git",
+  "downloadUrl": "https://github.com/Neural-Systems-at-UIO/LocaliZoom.git",
+  "softwareHelp": [
+    "mailto:support@ebrains.eu"
+  ],
+  "programmingLanguage": [
+    "JavaScript"
+  ],
+  "runtimePlatform": "web",
+  "operatingSystem": [
+    "Windows",
+    "macOS",
+    "Linux"
+  ],
+  "developmentStatus": "active",
+  "issueTracker": "https://github.com/Neural-Systems-at-UIO/LocaliZoom/issues",
+  "continuousIntegration": "https://github.com/Neural-Systems-at-UIO/LocaliZoom.git",
+  "keywords": [
+    "Image viewer",
+    "image annotation",
+    "2D images",
+    "Histology",
+    "Rodent",
+    "Atlas"
+  ],
+  "referencePublication": "https://doi.org/10.3389/fninf.2025.1629388",
+  "maintainer": [
+    {
+      "givenName": "Gergely",
+      "familyName": "Csucs",
+      "type": "Person",
+      "id": "https://orcid.org/0000-0002-2093-6274",
+      "affiliation": {
+        "type": "Organization",
+        "name": "NeSys lab, University of Oslo"
+      }
+    }
+  ],
+  "isPartOf": "LocaliView",
+  "funder": {
+    "type": "Organization",
+    "name": "H2020-EU.1.2 SGA 720270, H2020-EU.2.3 SGA 785907 and HORIZON-INFRA (EBRAINS 2.0) 101147319"
+  },
+  "version": "0.9",
+  "relatedLink": [
+    "https://localizoom.readthedocs.io"
+  ]
 }
