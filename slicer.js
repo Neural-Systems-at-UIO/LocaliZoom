@@ -77,3 +77,53 @@ function slice(ouv) {
     ret.getContext("2d").drawImage(canvas, 0, 0, ret.width, ret.height);
     return ret;
 }
+
+function iconset(ouv, options) {
+    const org = dataslice(ouv);
+    const orgd = org.data;
+    const orgw = org.width;
+    const orgh = org.height;
+    const w = options.hasOwnProperty("width") ? options.width : Math.floor(options.height * orgw / orgh);
+    const h = options.hasOwnProperty("height") ? options.height : Math.floor(options.width * orgh / orgw);
+    const scaled = new Uint16Array(w * h);
+    for (let y = 0; y < h; y++)
+        for (let x = 0; x < w; x++)
+            scaled[x + y * w] = orgd[Math.floor(x * orgw / w) + orgw * Math.floor(y * orgh / h)];
+    const opaquedata = new ImageData(w, h);
+    const pd = opaquedata.data;
+    const overlaydata = new ImageData(w, h);
+    const vd = overlaydata.data;
+    const outlinedata = new ImageData(w, h);
+    const ud = outlinedata.data;
+    let i = 0;
+    let j = 0;
+    for (let y = 0; y < h; y++)
+        for (let x = 0; x < w; x++) {
+            const d = scaled[i];
+            if (d === 0)
+                pd[j + 3] = 255;
+            else {
+                const l = atlas.labels[d];
+                pd[j] = vd[j] = l.r;
+                pd[j + 1] = vd[j + 1] = l.g;
+                pd[j + 2] = vd[j + 2] = l.b;
+                pd[j + 3] = vd[j + 3] = 255;
+            }
+            if ((x > 0 && scaled[i - 1] !== d) ||
+                    (x < w - 1 && scaled[i + 1] !== d) ||
+                    (y > 0 && scaled[i - w] !== d) ||
+                    (y < h - 1 && scaled[i + w] !== d))
+                ud[j + 3] = 255;
+            i++;
+            j += 4;
+        }
+    const opaque = document.createElement("canvas");
+    const overlay = document.createElement("canvas");
+    const outline = document.createElement("canvas");
+    opaque.width = overlay.width = outline.width = w;
+    opaque.height = overlay.height = outline.height = h;
+    opaque.getContext("2d").putImageData(opaquedata, 0, 0);
+    overlay.getContext("2d").putImageData(overlaydata, 0, 0);
+    outline.getContext("2d").putImageData(outlinedata, 0, 0);
+    return {opaque, overlay, outline, outlinedata};
+}

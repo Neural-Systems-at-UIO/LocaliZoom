@@ -1,3 +1,4 @@
+const fs_width = 128;
 var filmstrip = {};
 (function () {
     var volumeready = false;
@@ -53,18 +54,17 @@ var filmstrip = {};
     }
     this.prev = function () {
         if (active && active.previousSibling)
-            activate({target: active.previousSibling.firstElementChild});
+            activate({target: active.previousSibling});
     };
     this.next = function () {
         if (active && active.nextSibling)
-            activate({target: active.nextSibling.firstElementChild});
+            activate({target: active.nextSibling});
     };
     var idx;
     const observer = new IntersectionObserver(loader);
     const iconmap = new Map;
     function redraw() {
         const scroller = document.getElementById("stripscroller");
-        const opacity = document.getElementById("fs_alpha").valueAsNumber / 100;
 
         for (const item of arry) {
             const div = document.createElement("div");
@@ -73,28 +73,27 @@ var filmstrip = {};
             item.key = div;
             iconmap.set(div, item);
             div.className = "icon";
-            const icon = document.createElement("canvas");
-            const overlay = document.createElement("canvas");
-            overlay.onclick = activate;
-            overlay.style.opacity = opacity;
+            div.onclick = activate;
+
+            const {opaque, overlay, outline, outlinedata} = iconset(item, {width: fs_width});
+            item.outline = outline;
+            item.outlinedata = outlinedata;
+
             overlay.className = "icnv";
-            const w = icon.width = overlay.width = 128;
-            const h = icon.height = overlay.height = 128 * item.h / item.w;
-            div.appendChild(icon);
+            outline.className = "icnv";
+            div.appendChild(opaque);
             div.appendChild(overlay);
+            div.appendChild(outline);
             scroller.appendChild(div);
-            const ovly = slice(item);
-            for (const cnv of [icon, overlay]) {
-                const ctx = cnv.getContext("2d");
-                ctx.drawImage(ovly, 0, 0, w, h);
-            }
         }
-        activate({target: arry[idx].key.firstElementChild}, true);
+        filmstrip.fs_ovly();
+        filmstrip.fs_outline();
+        activate({target: arry[idx].key}, true);
     }
 
     let active;
     function activate(event, start) {
-        const target = event.target.parentElement;
+        const target = event.target;
         if (active === target)
             return;
         if (active)
@@ -110,9 +109,31 @@ var filmstrip = {};
     }
 
     this.fs_ovly = function (event) {
-        const opacity = event.target.valueAsNumber / 100;
-        for (const cnv of document.getElementsByClassName("icnv")) {
-            cnv.style.opacity = opacity;
+        const opacity = document.getElementById("fs_alpha").valueAsNumber / 100;
+        const o1 = opacity === 1 ? 0 : opacity;
+        const o2 = opacity === 1 ? 1 : 0;
+        for (const icon of document.getElementsByClassName("icon")) {
+            icon.children[1].style.opacity = o1;
+            icon.children[2].style.opacity = o2;
+        }
+    };
+
+    this.fs_outline = function (event) {
+        const color = document.getElementById("outline").value;
+        const r = parseInt(color.substring(1, 3), 16);
+        const g = parseInt(color.substring(3, 5), 16);
+        const b = parseInt(color.substring(5, 7), 16);
+        for (const item of arry) {
+            const {outline, outlinedata} = item;
+            const data = outlinedata.data;
+            const len = data.length;
+            for (let i = 0; i < len; i += 4)
+                if (data[i + 3] === 255) {
+                    data[i] = r;
+                    data[i + 1] = g;
+                    data[i + 2] = b;
+                }
+            outline.getContext("2d").putImageData(outlinedata, 0, 0);
         }
     };
 
@@ -135,13 +156,14 @@ var filmstrip = {};
                         maxlevel++;
                     }
                     var level = 0;
-                    while (width >= tilesize || height >= tilesize) {
+                    while (width >= tilesize || height >= tilesize || width >= fs_width * 2) {
                         level++;
                         width = (width + 1) >> 1;
                         height = (height + 1) >> 1;
                     }
                     const icon = await loaders.TileLoader(image.id, maxlevel - level, 0, 0, doc.getAttribute("Format"));
-                    div.firstElementChild.getContext("2d").drawImage(icon, 0, 0, 128, height * 128 / width);
+                    const cnv = div.firstElementChild;
+                    div.firstElementChild.getContext("2d").drawImage(icon, 0, 0, cnv.width, cnv.height);
                 });
             }
     }
