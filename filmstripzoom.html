@@ -86,6 +86,9 @@
                 left: 0;
                 cursor: pointer;
             }
+            #stripscroller canvas {
+                pointer-events: none;
+            }
             #controls{
                 position: absolute;
                 top: 0;
@@ -1287,7 +1290,7 @@
             Atlas opacity:
             <input type="range" id="alpha" min="0" max="100" step="10" value="100" oninput="handleOvly(event)">
             Outline:
-            <input type="color" value="#0000FF" id="outline" oninput="handleOvly(event)">
+            <input type="color" value="#0000FF" id="outline" oninput="handleOvly(event)" onchange="filmstrip.fs_outline(event)">
             <span id="helpbutton"><button onclick="toggleHelp()">?</button></span>
         </div>
         <div id="container">
@@ -1318,7 +1321,7 @@
             </div>
             <div id="scrollsep"></div>
             <div id="filmstrip">
-                <div id="striphead"><input type="range" id="fs_alpha" min="0" max="100" step="10" value="30" oninput="filmstrip.fs_ovly(event)"></div>
+                <div id="striphead"><input type="range" id="fs_alpha" min="0" max="100" step="10" value="100" oninput="filmstrip.fs_ovly(event)"></div>
                 <div id="stripscroller"></div>
             </div>
             <div id="help">
