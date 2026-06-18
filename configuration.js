@@ -1,9 +1,12 @@
+const dataproxy = fragment => "https://data-proxy.ebrains.eu/api/v1/buckets/" + fragment;
+const complete = candidate => candidate.startsWith("https://") ? candidate : dataproxy(candidate);
+
 const loaders = {
-    SeriesLoader: async series_id => fetch(series_id).then(response => response.json()),
+    SeriesLoader: async series_id => fetch(complete(series_id)).then(response => response.json()),
     DZILoader: () => {},
     TileLoader: () => {},
-    AtlasLoader: async atlas_id => fetch("https://data-proxy.ebrains.eu/api/v1/buckets/quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".json").then(response => response.json()),
-    AtlasVolumeLoader: async atlas_id => fetch("https://data-proxy.ebrains.eu/api/v1/buckets/quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".pack").then(response => response.arrayBuffer())
+    AtlasLoader: async atlas_id => fetch(dataproxy("quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".json")).then(response => response.json()),
+    AtlasVolumeLoader: async atlas_id => fetch(dataproxy("quint-atlas-binaries/LZ-flatpacks/" + atlas_id + ".pack")).then(response => response.arrayBuffer())
 };
 
 async function transformSeries(series) {
@@ -16,15 +19,16 @@ async function transformSeries(series) {
             anchoring: section.ouv,
             markers: section.markers
         }));
-        series.dziproot = `https://data-proxy.ebrains.eu/api/v1/buckets/${series.bucket}/.nesysWorkflowFiles/zippedPyramids`;
+        series.dziproot = dataproxy(series.bucket + "/.nesysWorkflowFiles/zippedPyramids");
     }
-    if(args.dzip) {
-        series.dziproot = args.dzip.match(/(.*zippedPyramids).*/)[1];
-        const prefix = args.dzip.match(/.*zippedPyramids\/(.*)\/.*$/)[1];
-        for(let section of series.slices) {
-            section.filename = prefix + "/" + section.filename.split(".")[0] + ".dzip";
-        }
-    }
+// 2026-06-16: this is not used in our registry (configuration page itself generates "dziproot=" links)
+//    if(args.dzip) {
+//        series.dziproot = args.dzip.match(/(.*zippedPyramids).*/)[1];
+//        const prefix = args.dzip.match(/.*zippedPyramids\/(.*)\/.*$/)[1];
+//        for(let section of series.slices) {
+//            section.filename = prefix + "/" + section.filename.split(".")[0] + ".dzip";
+//        }
+//    }
 
     /*
      * transform certain parts of filenames (like _thumbnail), comma separated
@@ -37,7 +41,7 @@ async function transformSeries(series) {
     }
 
     if (args.dziproot) {
-        series.dziproot = args.dziproot;
+        series.dziproot = complete(args.dziproot);
     }
     if(series.dziproot) {
         const dzipmap = new Map;
@@ -64,6 +68,27 @@ async function transformSeries(series) {
         };
         return;
     }
+    
+    loaders.DZILoader = section_id =>
+        fetch(`${complete(args.pyramids)}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}.dzi`).then(response => response.text());
+    loaders.TileLoader = async (section_id, level, x, y, format) => {
+        const img = document.createElement("img");
+        await new Promise(resolve => {
+            img.onload = resolve;
+            img.src = `${complete(args.pyramids)}/${section_id}/${section_id.substring(0, section_id.lastIndexOf("."))}_files/${level}/${x}_${y}.${format}`;
+        });
+        return img;
+    };
+    return;
+    
+/* 2026-06-16: retired
+ * 
+ * TODO:
+ * - check for transform needs everywhere
+ * - check the 2 datasets from below, and 3 occurrences of "nontiff"
+ */
+
+    
     /*
      * convert extensions to .tif except when directed otherwise:
      */
