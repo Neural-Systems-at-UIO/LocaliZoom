@@ -62,6 +62,7 @@
 //                    log.innerHTML=`Viewer: <a target="_blank" href="${baselink}">${baselink}</a><br>`+
 //                                  `Annotation tools: <a target="_blank" href="${antools}">${antools}</a><br>`+
 //                                  `Nonlinear tools: <a target="_blank" href="${nltools}">${nltools}</a>`;
+                    baselink=baselink.replaceAll(/https\:\/\/data-proxy\.ebrains\.eu\/api\/v1\/(public\/)?buckets\//g,"");
                     trfparams={baselink,dzips,sections:json.slices.map(slice=>slice.filename)};
                     transform();
                     return;
